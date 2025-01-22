@@ -1,0 +1,32 @@
+{
+  "name": "beelite",
+  "version": "0.0.0",
+  "description": "Hyperbee and Hypercore in one",
+  "main": "index.js",
+  "files": [],
+  "scripts": {
+    "test": "standard && brittle test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukks/beelite.git"
+  },
+  "author": "Lucas Barrena (LuKks)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lukks/beelite/issues"
+  },
+  "homepage": "https://github.com/lukks/beelite#readme",
+  "devDependencies": {
+    "brittle": "^3.3.2",
+    "like-tmp": "^1.0.0",
+    "standard": "^17.1.0"
+  },
+  "dependencies": {
+    "compact-encoding": "^2.16.0",
+    "hyperbee": "^2.21.2",
+    "hypercore": "^10.38.2",
+    "is-options": "^1.0.2",
+    "random-access-memory": "^6.2.1"
+  }
+}
