@@ -1,6 +1,8 @@
 const test = require('brittle')
 const tmp = require('like-tmp')
 const Beelite = require('./index.js')
+const Hypercore = require('hypercore')
+const RAM = require('random-access-memory')
 
 test('ram', async function (t) {
   const a = new Beelite(':ram')
@@ -36,4 +38,19 @@ test('dir', async function (t) {
   t.is(entry2.value, '123')
 
   await b.close()
+})
+
+
+test('core', async function (t) {
+  const core = new Hypercore(RAM)
+
+  const db = new Beelite(core)
+  await db.put('/key', '123')
+
+  const entry = await db.get('/key')
+  t.is(entry.value, '123')
+
+  await db.close()
+
+  t.ok(core.closed)
 })

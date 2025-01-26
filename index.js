@@ -11,11 +11,15 @@ module.exports = class Beelite extends Hyperbee {
       key = null
     }
 
-    if (!storage || storage === ':ram') {
-      storage = RAM
-    }
+    let core = null
 
-    const core = new Hypercore(storage, key)
+    if (!storage || storage === ':ram') {
+      core = new Hypercore(RAM, key)
+    } else if (typeof storage === 'string') {
+      core = new Hypercore(storage, key)
+    } else {
+      core = storage
+    }
 
     super(core, {
       alwaysDuplicate: false,
