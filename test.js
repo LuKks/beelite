@@ -40,7 +40,6 @@ test('dir', async function (t) {
   await b.close()
 })
 
-
 test('core', async function (t) {
   const core = new Hypercore(RAM)
 
