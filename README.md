@@ -8,6 +8,8 @@ npm i beelite
 
 ## Usage
 
+Use a directory:
+
 ```js
 const Beelite = require('beelite')
 
@@ -20,13 +22,32 @@ const entry = await db.get('/key')
 // Use it as Hyperbee..
 ```
 
+Use RAM easily:
+
+```js
+const db = new Beelite(':ram')
+// ...
+```
+
+Use a Hypercore directly:
+
+```js
+const Hypercore = require('hypercore')
+
+const core = new Hypercore(...)
+// Or corestore.get({ name: 'a' })
+
+const db = new Beelite(core)
+// ...
+```
+
 #### `db = new Beelite(storage[, key, options])`
 
 Create a new Beelite instance.
 
 It's just a Hyperbee with additions in the constructor.
 
-The storage can be `:ram` to use `random-access-memory` or a dir path.
+The storage can be `:ram` for `random-access-memory`, a dir path, or a core.
 
 Options:
 
